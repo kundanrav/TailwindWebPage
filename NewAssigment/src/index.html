@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TailwindDemo</title>
+    <link rel="stylesheet" href="../dist/styles.css">
+    <style>
+        .overflow-auto::-webkit-scrollbar {
+            display: none !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body class="font-serif">
+    <nav class="navbar bg-white text-black fixed top-0 z-50 shadow-lg  border-b-2 border-[#d0d0a7]" id="navBar">
+        <!-- mobile dropdown  -->
+        <div class="nav flex">
+            <div class="dropdown" id="dropdownMenu">
+                <span class="p-3 text-md text-black" id="bar1"><svg class="pl-4 h-7 cursor-pointer"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5" />
+                    </svg>
+                </span>
+                <span class="p-3 text-md hidden" id="bar2">
+                    <svg class="pl-4 h-7 cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </span>
+            </div>
+            <!-- brand  -->
+            <a href="" class="flex justify-center lg:justify-start w-full">
+                <img src="img/logo.png" class="brand mr-2" alt="">
+            </a>
+        </div>
+
+        <div class="menu hidden lg:block" id="menu">
+            <div class="menu-list lg:inline-flex">
+
+
+                <a href="" class="py-4 px-2 text-[#0B8497] font-semibold ">Home</a>
+                <div class="group">
+                    <a href=""
+                        class=" flex py-4 px-2 text-gray-500 font-semibold hover:text-[#0B8497] transition duration-300 ">Blog<svg
+                            class="w-5 h-5 ml-1" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5">
+                            </path>
+                        </svg></a>
+
+                    <div class="hidden group-hover:block  border border-[#D0D0A7] absolute z-50 p-5 bg-white w-[260px]">
+                        <ul class="">
+                            <li class="p-3 border-b-2 border-[#d0d0a7]">1st Full Post + 2 cols Grid</li>
+                            <li class="p-3 border-b-2 border-[#d0d0a7]">1st Full Post + list</li>
+                            <li class="p-3 border-b-2 border-[#d0d0a7]">2 cols Grid Layout</li>
+                            <li class="p-3 border-b-2 border-[#d0d0a7]">List Layout</li>
+                            <li class="p-3 border-b-2 border-[#d0d0a7]">3 cols Grid Layout</li>
+                            <li class="p-3 border-b-2 border-[#d0d0a7]">Standard Blog Layout</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="group">
+                    <a href=""
+                        class=" flex py-4 px-2 text-gray-500 font-semibold hover:text-[#0B8497] transition duration-300 ">Features<svg
+                            class="w-5 h-5 ml-1" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5">
+                            </path>
+                        </svg></a>
+
+                    <div class="hidden group-hover:block  border border-[#D0D0A7] absolute z-50 p-5 bg-white w-[260px]">
+                        <ul class="">
+
+                            <li class="p-3 border-b-2 border-[#d0d0a7]">Headers</li>
+                            <li class="p-3 border-b-2 border-[#d0d0a7]">Sliders</li>
+                            <li class="p-3 border-b-2 border-[#d0d0a7]">Sidebars</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="group">
+                    <a href=""
+                        class=" flex py-4 px-2 text-gray-500 font-semibold hover:text-[#0B8497] transition duration-300 ">Categories<svg
+                            class="w-5 h-5 ml-1" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5">
+                            </path>
+                        </svg></a>
+
+                    <div class="hidden group-hover:block  border border-[#D0D0A7] absolute z-50 p-5 bg-white w-[260px]">
+                        <ul class="">
+                            <li class="p-3 border-b-2 border-[#d0d0a7]">Lifestyle</li>
+                            <li class="p-3 border-b-2 border-[#d0d0a7]">Travel</li>
+                            <li class="p-3 border-b-2 border-[#d0d0a7]">Photo</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href=""
+                    class="py-4 px-2 text-gray-500 font-semibold hover:text-[#0B8497] transition duration-300">About</a>
+                <a href=""
+                    class="py-4 px-2 text-gray-500 font-semibold hover:text-[#0B8497] transition duration-300">Contact</a>
+                <div class="group">
+                    <a href=""
+                        class=" flex py-4 px-2 text-gray-500 font-semibold hover:text-[#0B8497] transition duration-300 ">SHOP<svg
+                            class="w-5 h-5 ml-1" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5">
+                            </path>
+                        </svg></a>
+
+                    <div class="hidden group-hover:block  border border-[#D0D0A7] absolute z-50 p-5 bg-white w-[260px]">
+                        <ul class="">
+                            <li class="p-3 border-b-2 border-[#d0d0a7]">Cart</li>
+                            <li class="p-3 border-b-2 border-[#d0d0a7]">Checkout</li>
+                            <li class="p-3 border-b-2 border-[#d0d0a7]">My Account</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href=""
+                    class="flex py-4 px-2 text-gray-500 font-semibold hover:text-[#0B8497] transition duration-300 ">Portfolio</a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        const dropdwon = document.querySelector("#dropdownMenu");
+        const menu = document.querySelector('#menu');
+        const navbar = document.querySelector('#navBar');
+
+        // for bar 
+        const bar1 = document.querySelector('#bar1');
+        const bar2 = document.querySelector('#bar2');
+
+
+        dropdwon.addEventListener('click', () => {
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                navbar.classList.remove('bg-white');
+                navbar.classList.remove('text-black');
+                navbar.classList.add('bg-teal-900');
+                navbar.classList.add('text-white');
+
+                // for bar 
+                bar1.classList.add('hidden');
+                bar2.classList.remove('hidden');
+            }
+            else {
+                menu.classList.add('hidden')
+                navbar.classList.add('text-black');
+                navbar.classList.add('bg-white');
+
+                navbar.classList.remove('bg-teal-900');
+                navbar.classList.remove('text-white');
+
+                // for bar 
+                bar1.classList.remove('hidden');
+                bar2.classList.add('hidden');
+            }
+        });
+
+    </script>
+
+
+    <div class="bg-[#E7F2ED] mt-20">
+        <div class="container mx-auto min-h-fit">
+            <div class="hidden md:block">
+
+                <div class="flex justify-evenly overflow-auto space-x-4">
+                    <div class="sm:mySlides">
+                        <img class="md:float-left lg:mt-24 md:mt-24 sm:mt-0" src="img/h1.png" alt="" srcset="">
+                    </div>
+                    <div class="group mt-10 sm:mySlides ">
+                        <div class="relative"> <img class="lg:mb-24" src="img/Rectangle 66.png" alt="" srcset="">
+                            <div class="absolute top-0 -mx-7 -my-7">
+                                <div class=""><img src="img/Vector.png" alt="" srcset=""></div>
+                            </div>
+                            <div class="absolute -bottom-0 ml-[85%]  -mb-[25px]">
+                                <div class=""><img src="img/Vector.png" alt="" srcset=""></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sm:mySlides">
+                        <img class="mt-0 float-right md:mt-24 lg:mt-24 " src="img/Rectangle 67.png" alt="" srcset="">
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="block md:hidden h-[400px]">
+
+
+
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img class="object-cover w-full h-96" src="img/h1.png" alt="image" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="object-cover w-full h-96" src="img/Rectangle 66.png" alt="image" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="object-cover w-full h-96" src="img/Rectangle 67.png" alt="image" />
+                        </div>
+                        <div class="swiper-slide ">
+                            <img class="object-cover w-full h-96" src="img/h1.png" alt="image" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="object-cover w-full h-96" src="img/Rectangle 66.png" alt="image" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="object-cover w-full h-96" src="img/Rectangle 67.png" alt="image" />
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+
+                <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+                <script>
+                    var swiper = new Swiper('.mySwiper', {
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                    });
+                </script>
+
+
+
+
+            </div>
+
+
+            <div class="text-center">
+                <p class="text-lg font-serif italic sm:my-3">HEY THERE</p>
+                <p class="text-6xl font-bold font-serif">I'm Haus</p>
+                <p
+                    class="leading-6 p-4 md:leading-7 lg:leading-10 m-3 text-sm md:text-base lg:text-xl h-[85px] md:h-32 overflow-hidden text-justify">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam libero ex,
+                    tristique sed dignissim vel, cursus ut magna. Aenean lacinia mi eget orci aliquet pharetra. Duis ut
+                    ultricies felis. Nulla vitae mi dictum, scelerisque nibh eget, sagittis ligula.Nulla tortor quam,
+                    feugiat id laoreet ac, pellentesque sed tellus. Nunc condimentum, magna vel sodales mollis, nisl
+                    nibh ornare eros, vel malesuada nunc metus at elit. Aenean vitae arcu auctor, imperdiet nisl quis,
+                    interdum lacus.</p>
+                <div class="m-5">
+
+                    <button
+                        class="uppercase text-2xl border p-2 border-[#D0D0A7] hover:bg-[#d0d0a7] hover:text-white mb-12">Read
+                        the whole story</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-[#F2F2E6]">
+        <div class="container mx-auto flex flex-wrap md:flex-nowrap lg:flex-nowrap mt-0 m-7 leading-10">
+            <div class="w-full md:w-3/6">
+                <img class="p-3" src="img/h4.png" alt="" srcset="">
+            </div>
+            <div class="p-7 border-l-2 border-yellow-200 text-[#04282D]">
+
+                <p class="text-xl md:text-2xl lg:text-4xl">Condimentum Magna Vel Sodales Mollis Nisl Nibh Ornare Eros
+                </p>
+                <div class="border-b-4 border-[#04282D] w-24"></div>
+                <p class="py-10 text-sm md:text-base lg:text-xl leading-[48px]">Nunc condimentum, magna vel sodales
+                    mollis, nisl nibh ornare eros, vel malesuada
+                    nunc metus. Aenean vitae arcu auctor, imperdiet nisl quis interdum lacus.</p>
+                <div class="text-center">
+
+                    <button
+                        class="m-7 uppercase text-2xl border p-2 border-[#D0D0A7] hover:bg-[#d0d0a7] hover:text-white">Get
+                        start</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+        <div class="container mx-auto my-6">
+
+            <div class="md:grid md:grid-cols-3 md:gap-4 flex">
+                <div class="group hidden md:block">
+                    <div class="relative group-hover:opacity-60"><img class="w-full " src="img/20 22.png" alt=""
+                            srcset="">
+                        <div class="absolute top-0 w-full h-full mt-[40%] text-center">
+                            <div class="group-hover:bg-white p-4"><span
+                                    class="align-middle w-fit bg-white p-4">Architecture</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="place-self-center row-span-2 text-center justify-center">
+                    <p class="text-3xl">THE PORTFOLIO</p>
+                    <p class="text-2xl md:text-4xl lg:text-7xl flex break-word p-5">VIEW RECENT WORK</p>
+                    <button
+                        class="uppercase text-2xl border p-2 border-yellow-100 hover:bg-cyan-900 hover:text-white">Get
+                        start</button>
+                </div>
+                <div class="group hidden md:block">
+                    <div class="relative group-hover:opacity-60"><img class="w-full " src="img/21 1.png" alt=""
+                            srcset="">
+                        <div class="absolute top-0 w-full h-full mt-[40%] text-center">
+                            <div class="group-hover:bg-white p-4"><span
+                                    class="align-middle w-fit bg-white p-4">INTERIOR</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="group hidden md:block">
+                    <div class="relative group-hover:opacity-60"><img class="w-full " src="img/7 1.png" alt=""
+                            srcset="">
+                        <div class="absolute top-0 w-full h-full mt-[40%] text-center">
+                            <div class="group-hover:bg-white p-4"><span
+                                    class="align-middle w-fit bg-white p-4">PHOTOGRAPHY</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group hidden md:block">
+                    <div class="relative group-hover:opacity-60 group-hover:bg-[#000000BA]"><img class="w-full "
+                            src="img/22 1.png" alt="" srcset="">
+                        <div class="absolute top-0 w-full h-full mt-[40%] text-center">
+                            <div class="group-hover:bg-white p-4"><span
+                                    class="align-middle w-fit bg-white p-4">ANIMAL</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-[#E7F2ED] h-auto md:h-[400px] lg:h-[625px]">
+        <div class="container mx-auto flex flex-wrap md:flex-nowrap lg:flex-nowrap">
+
+            <div class="p-5  md:p-16 w-full md:w-1/2 order-last md:order-first  text-[#04282D]">
+
+                <p class="text-xl md:text-[28x] lg:text-5xl">Tools For Creatives</p>
+                <div class="border-b-4 border-[#0B8497] w-24"></div>
+                <p class="text-lg md:text-xl break-words leading-10">Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. <span class="hidden lg:block"> Ut
+                        elit tellus, luctus nec
+                        ullamcorper mattis, pulvinar dapibus leo.Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Ut
+                        elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</span></p>
+                <button
+                    class="uppercase text-sm md:text-base lg:text-2xl border p-2 border-yellow-100 hover:bg-[#d0d0a7] hover:text-white">GO
+                    TO THE BLOG</button>
+            </div>
+
+            <div class="flex md:pl-10 w-full border-l-2 border-[#D0D0A7]  justify-evenly">
+                <img class=" p-3 w-[140px] md:w-[45%] h-[204px] md:h-[330px] lg:h-full" src="img/23.png" alt=""
+                    srcset="">
+                <img class="p-3 h-[204px] w-[140px] md:w-[45%] md:h-[330px] lg:h-full" src="img/24.png" alt=""
+                    srcset="">
+            </div>
+        </div>
+    </div>
+    <div class="container mx-auto flex flex-nowrap justify-evenly ">
+
+        <div class="w-full md:w-[460px] ">
+            <div class="border m-3 mb-16 md:m-16 border-[#D0D0A7]  text-center hover:bg-[#E8F2EE]">
+                <p class="p-7 leading-9">
+                    “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempor interdum ipsum, non finibus
+                    libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.”
+                </p>
+                <img class="mx-auto -mb-14 border-8 border-white rounded-full outline-1 outline-black"
+                    src="img/Ellipse 10.png" alt="">
+            </div>
+            <p class="text-center">CLIENT NAME HERE</p>
+        </div>
+
+        <div class="w-full hidden md:block md:w-[460px]">
+            <div class="border m-3 md:m-16 border-[#D0D0A7]  text-center hover:bg-[#E8F2EE]">
+                <p class="p-7 leading-9">
+                    “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempor interdum ipsum, non finibus
+                    libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.”
+                </p>
+                <img class="mx-auto -mb-14 border-8 border-white rounded-full" src="img/Ellipse 10 (1).png" alt="">
+            </div>
+            <p class="text-center">CLIENT NAME HERE</p>
+        </div>
+        <div class="w-full md:w-[460px] hidden lg:block">
+            <div class="border md:m-16 border-[#D0D0A7]  text-center hover:bg-[#E8F2EE]">
+                <p class="p-7 leading-9">
+                    “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempor interdum ipsum, non finibus
+                    libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.”
+                </p>
+                <img class="mx-auto -mb-14 border-8 border-white rounded-full" src="img/Ellipse 10 (2).png" alt="">
+            </div>
+            <p class="text-center">CLIENT NAME HERE</p>
+        </div>
+    </div>
+    <div class="bg-[#E7F2ED]">
+        <div class="container  h-auto mt-10 mx-auto overflow-auto">
+            <div class="flex p-12">
+                <img src="img/26.png" alt="" srcset="">
+                <img src="img/25.png" alt="" srcset="">
+                <img src="img/24.png" alt="" srcset="">
+                <img src="img/25.png" alt="" srcset="">
+            </div>
+        </div>
+    </div>
+    <div class="container mx-auto">
+
+        <div class="flex mx-auto space-x-10 md:space-x-16 p-7">
+            <div class="" id="life">
+                <span class="text-xl md:text-5xl">Lifestyle</span>
+                <div class="border-t-4 mt-2 border-[#0B8497]" id="lifeu"></div>
+            </div>
+            <div id="travel">
+                <span class="text-xl md:text-5xl">Travel</span>
+                <div class="border-t-4 mt-2 w-1/2 border-[#808013]" id="travelu"></div>
+            </div>
+
+            <div id="photo">
+                <span class="text-xl md:text-5xl">Photos</span>
+                <div class="border-t-4 mt-2 w-1/2 border-[#F8A488]" id="photou"></div>
+            </div>
+        </div>
+        <div class="border border-[#0B8497] m-5" id="lifed">
+
+            <p class="p-10 leading-9 text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                luctus nec ullamcorper mattis, pulvinar dapibus leo.Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.Lorem
+                ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis,
+                Pulvinar dapibus leo.</p>
+        </div>
+        <div class="border border-[#0B8497] m-5 hidden" id="traveld">
+
+            <p class="p-10 leading-9 text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                luctus nec ullamcorper mattis, pulvinar dapibus leo.Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Ut elit tellus, luctus nec ullamcorper mattis, .Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Ut elit tellus, luctus nec ullamcorper mattis, Pulvinar dapibus leo.</p>
+        </div>
+        <div class="border border-[#0B8497] m-5 hidden" id="photod">
+            <p class="p-10 leading-9 text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. ULorem ipsum
+                dolor sit amet, consectetur adipiscing elitt elit tellus, luctus nec ullamcorper mattis, pulvinar
+                dapibus leo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
+                ullamcorper mattis, .Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit
+                amet, consectetur adipiscing elitUt elit tellus, luctus nec ullamcorper mattis, Pulvinar dapibus leo.
+            </p>
+        </div>
+    </div>
+    <script>
+        const life = document.querySelector("#life");
+        const lifeu = document.querySelector('#lifeu');
+        const lifed = document.querySelector('#lifed');
+
+        const travel = document.querySelector("#travel");
+        const travelu = document.querySelector('#travelu');
+        const traveld = document.querySelector('#traveld');
+
+        const photo = document.querySelector("#photo");
+        const photou = document.querySelector('#photou');
+        const photod = document.querySelector('#photod');
+
+        life.addEventListener('click', () => {
+            if (lifed.classList.contains('hidden')) {
+                lifed.classList.remove('hidden')
+                lifeu.classList.remove('w-1/2')
+                lifeu.classList.add('w-full')
+                traveld.classList.add('hidden')
+                travelu.classList.remove('w-full')
+                travelu.classList.add('w-1/2')
+                photod.classList.add('hidden')
+                photou.classList.remove('w-full')
+                photou.classList.add('w-1/2')
+
+            }
+            else {
+                lifed.classList.add('hidden')
+                lifeu.classList.remove('w-full')
+            }
+        });
+
+        travel.addEventListener('click', () => {
+            if (traveld.classList.contains('hidden')) {
+                traveld.classList.remove('hidden')
+                travelu.classList.remove('w-1/2')
+                travelu.classList.add('w-full')
+
+                lifed.classList.add('hidden')
+                lifeu.classList.remove('w-full')
+                lifeu.classList.add('w-1/2')
+
+                photod.classList.add('hidden')
+                photou.classList.remove('w-full')
+                photou.classList.add('w-1/2')
+
+            }
+            else {
+                traveld.classList.add('hidden')
+                travelu.classList.remove('w-full')
+            }
+        });
+
+
+        photo.addEventListener('click', () => {
+            if (photod.classList.contains('hidden')) {
+                photod.classList.remove('hidden')
+                photou.classList.remove('w-1/2')
+                photou.classList.add('w-full')
+                traveld.classList.add('hidden')
+                travelu.classList.remove('w-full')
+                travelu.classList.add('w-1/2')
+                lifed.classList.add('hidden')
+                lifeu.classList.remove('w-full')
+                lifeu.classList.add('w-1/2')
+
+
+            }
+            else {
+                photod.classList.add('hidden')
+                photou.classList.remove('w-full')
+            }
+        });
+
+    </script>
+
+    <div class="bg-[#E7F2ED]">
+
+        <div class="container mx-auto">
+            <p class="text-xl md:text-5xl text-center p-3 md:p-12">Lets Collaborate Together</p>
+            <div class="flex flex-wrap md:flex-nowrap space-x-9 leading-9 p-6 overflow-hidden">
+                <div class="sm:w-full">
+                    <p>
+                        What is Lorem Ipsum?
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br>
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                        printer took a galley of type and scrambled it to make a type specimen book.
+                    </p>
+                    <button class="md:hidden border border-[#D0D0A7] hover:text-white hover:bg-[#D0D0A7] py-1 px-3">Read
+                        More</button>
+                </div>
+
+                <div class="hidden md:block">
+                    <p>
+                        It has survived not only five centuries, but also the leap into electronic typesetting,
+                        remaining essentially unchanged. <br>
+                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                        passages, and more recently with desktop publishing
+                    </p>
+                </div>
+
+                <div class="hidden lg:block">
+                    <p>
+                        software like Aldus PageMaker including versions of Lorem Ipsum. <br>
+                        Why do we use it? <br>
+                        It is a long established fact that a reader will be distracted by the readable content of a page
+                        when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                        distribution of
+                    </p>
+                </div>
+                <div class="hidden lg:block">
+                    <p>
+                        letters, as opposed to using 'Content here, content here', making it look like readable English.
+                        <br>
+                        Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model
+                        text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto text-center">
+        <p class="text-6xl">Recent Posts</p>
+        <div class="flex flex-wrap md:flex-nowrap md:space-x-10 lg:space-x-14 p-8 leading-8">
+
+            <div
+                class="w-full md:w-1/2 lg:w-[30%] my-3 p-2 md:p-0 text-left md:text-center border border-[#D0D0A7] hover:bg-[#E8F2EE]">
+                <img class="hidden md:block" src="img/17 2.png" alt="" srcset="">
+                <p class="text-xs">PHOTO</p>
+                <p class="text-sm md:text-2xl">Little Known Ways To Rid YourSelf</p>
+                <p class="text-sm">June 20,2021</p>
+                <div class="hidden md:block">
+                    <hr class="text-[#D0D0A7]">
+                    <p>Special cloth alert. Fan luv. Celebrate success right, the only way, apple. Give thanks to the
+                        most
+                        high. In life there will be road blocks but we will over come...</p>
+                    <button class="border border-[#D0D0A7] hover:text-white hover:bg-[#D0D0A7] py-1 px-3">Read
+                        More</button>
+                </div>
+            </div>
+
+            <div
+                class="w-full  md:w-1/2 lg:w-[30%]  my-3 p-2 md:p-0 text-left md:text-center border border-[#D0D0A7] hover:bg-[#E8F2EE]">
+
+                <div class="p-3 ">
+                    <p class="text-xs">PHOTO</p>
+                    <p class="text-sm md:text-2xl">Little Known Ways To Rid YourSelf</p>
+                    <p class="text-sm">June 20,2021</p>
+                    <div class="hidden md:block">
+
+                        <hr class="text-[#D0D0A7]">
+                        <p>Special cloth alert. Fan luv. Celebrate success right, the only way, apple. Give thanks to
+                            the
+                            most high. In life there will be road blocks but we will over come...</p>
+                        <button class="border border-[#D0D0A7] hover:text-white hover:bg-[#D0D0A7] py-1 px-3">Read
+                            More</button>
+                    </div>
+                </div>
+                <img class="hidden md:block" src="img/17 2.png" alt="" srcset="">
+            </div>
+
+
+            <div
+                class="md:hidden  md:w-1/2 lg:block w-full lg:w-[30%]  my-3 p-2 md:p-0 text-left md:text-center border border-[#D0D0A7] hover:bg-[#E8F2EE]">
+                <img class="hidden md:block" src="img/17 2.png" alt="" srcset="">
+                <p class="text-xs">PHOTO</p>
+                <p class="text-sm md:text-2xl">Little Known Ways To Rid YourSelf</p>
+                <p class="text-sm">June 20,2021</p>
+                <div class="hidden md:block">
+
+                    <hr class="text-[#D0D0A7]">
+                    <p>Special cloth alert. Fan luv. Celebrate success right, the only way, apple. Give thanks to the
+                        most
+                        high. In life there will be road blocks but we will over come...</p>
+                    <button class="border border-[#D0D0A7] hover:text-white hover:bg-[#D0D0A7] py-1 px-3">Read
+                        More</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="hidden md:block">
+            <div class="flex flex-wrap md:flex-nowrap md:space-x-10 lg:space-x-14 p-8 leading-8">
+
+                <div
+                    class="w-full md:w-1/2 lg:w-[30%] my-3 p-2 md:p-0 text-left md:text-center border border-[#D0D0A7] hover:bg-[#E8F2EE]">
+
+                    <div class="p-3 ">
+                        <p class="text-xs">PHOTO</p>
+                        <p class="text-2xl">Little Known Ways To Rid YourSelf</p>
+                        <p class="text-sm">June 20,2021</p>
+
+                    </div>
+                    <img src="img/17 2.png" alt="" srcset="">
+                    <hr class="text-[#D0D0A7]">
+                    <p>Special cloth alert. Fan luv. Celebrate success right, the only way, apple. Give thanks to the
+                        most
+                        high. In life there will be road blocks but we will over come...</p>
+                    <button class="border border-[#D0D0A7] hover:text-white hover:bg-[#D0D0A7] py-1 px-3 m-3">Read
+                        More</button>
+                </div>
+
+
+                <div class="w-full  md:w-1/2 lg:w-[30%] text-center border border-[#D0D0A7] hover:bg-[#E8F2EE]">
+
+                    <div class="p-3 ">
+                        <p class="text-xs">PHOTO</p>
+                        <p class="text-2xl">Little Known Ways To Rid YourSelf</p>
+                        <p class="text-sm">June 20,2021</p>
+
+                    </div>
+                    <img src="img/17 2.png" alt="" srcset="">
+                    <hr class="text-[#D0D0A7]">
+                    <p>Special cloth alert. Fan luv. Celebrate success right, the only way, apple. Give thanks to the
+                        most
+                        high. In life there will be road blocks but we will over come...</p>
+                    <button class="border border-[#D0D0A7] hover:text-white hover:bg-[#D0D0A7] py-1 px-3 m-3">Read
+                        More</button>
+                </div>
+
+
+                <div
+                    class="md:hidden  md:w-1/2 lg:block w-full lg:w-[30%]  my-3 p-2 md:p-0 text-left md:text-center border border-[#D0D0A7] hover:bg-[#E8F2EE]">
+
+                    <div class="p-3 ">
+                        <p class="text-xs">PHOTO</p>
+                        <p class="text-2xl">Little Known Ways To Rid YourSelf</p>
+                        <p class="text-sm">June 20,2021</p>
+
+                    </div>
+                    <img src="img/17 2.png" alt="" srcset="">
+                    <hr class="text-[#D0D0A7]">
+                    <p>Special cloth alert. Fan luv. Celebrate success right, the only way, apple. Give thanks to the
+                        most
+                        high. In life there will be road blocks but we will over come...</p>
+                    <button class="border border-[#D0D0A7] hover:text-white hover:bg-[#D0D0A7] py-1 px-3 m-3">Read
+                        More</button>
+                </div>
+            </div>
+            <button
+                class="justify-center uppercase text-2xl border p-2 border-[#D0D0A7] hover:bg-[#d0d0a7] hover:text-white mb-16">VIEW
+                MORE POSTS</button>
+        </div>
+    </div>
+
+
+    <div class="bg-[#E7F2ED]">
+        <div class="container mx-auto ">
+
+            <p class="text-5xl text-[#04282D] p-7 text-center">Contact Us</p>
+            <div class="flex flex-wrap md:flex-nowrap">
+                <div class="w-full md:w-1/2">
+                    <form action="" method="post">
+                        <input class="w-[95%] p-4 bg-[#e7f2ed] text-black border border-[#04282D4D] m-3" type="text"
+                            name="fname" placeholder="First Name"><br>
+                        <input class="w-[95%] p-4 bg-[#e7f2ed] text-black border border-[#04282D4D] m-3" type="text"
+                            name="lname" placeholder="Last Name"><br>
+                        <input class="w-[95%] p-4 bg-[#e7f2ed] text-black border border-[#04282D4D] m-3" type="email"
+                            name="email" placeholder="Email"><br>
+                        <label class="p-4" for="comment">Comment</label><br>
+                        <textarea class="w-[95%] p-4 bg-[#e7f2ed] text-black border border-[#04282D4D] m-3"
+                            name="comment" id="comment" cols="30" rows="6">
+</textarea>
+                        <button class="border border-[#04282D4D] py-1 px-3 m-3">SUBMIT</button>
+                    </form>
+                </div>
+                <div class="w-full md:w-1/2 h-full items-center">
+
+                    <label for="Upload" class="text-lg p-4">Upload File</label>
+
+                    <div class="border border-dashed border-[#04282D4D] h-[200px] md:h-[430px] items-center">
+                        <div class="flex h-full flex-col items-center justify-center pt-5 pb-6">
+                            <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
+                                </path>
+                            </svg>
+                            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                                <span class="font-semibold">Drop Your Files Here</span>
+                            </p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">
+                                or
+                            </p>
+                            <button class="border border-[#04282D4D] py-1 px-3 m-3">Browse File</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto">
+        <p class="text-5xl p-5 text-center">FAQ</p>
+        <div class="border border-[#0B8497] md:w-1/2 mx-auto group m-3">
+            <div class="flex justify-between" id="accordian">
+                <p class="p-3">Lorem ipsum dolor sit amet</p>
+                <img class=" p-3" id="i1" src="img/Group 309.svg" alt="" srcset="">
+                <img class="hidden p-3" id="i2" src="img/Group 309-1.svg" alt="" srcset="">
+            </div>
+            <div class="hidden" id="faq">
+                <hr class="text-[#04282D4D] px-3">
+                <p class="p-3 group-hover:block">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum
+                    dolor sit amet, consectetur
+                    adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit.</p>
+            </div>
+        </div>
+
+        <div class="border border-[#0B8497] md:w-1/2  mx-auto group m-3">
+            <div class="flex justify-between" id="accordian1">
+                <p class="p-3">Lorem ipsum dolor sit amet</p>
+                <img class=" p-3" id="i11" src="img/Group 309.svg" alt="" srcset="">
+                <img class="hidden p-3" id="i21" src="img/Group 309-1.svg" alt="" srcset="">
+            </div>
+            <div class="hidden" id="faq1">
+                <hr class="text-[#04282D4D] px-3">
+                <p class="p-3 group-hover:block">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum
+                    dolor sit amet, consectetur
+                    adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        <div class="border border-[#0B8497] md:w-1/2  mx-auto group m-3">
+            <div class="flex justify-between" id="accordian2">
+                <p class="p-3">Lorem ipsum dolor sit amet</p>
+                <img class=" p-3" id="i12" src="img/Group 309.svg" alt="" srcset="">
+                <img class="hidden p-3" id="i22" src="img/Group 309-1.svg" alt="" srcset="">
+            </div>
+            <div class="hidden" id="faq2">
+                <hr class="text-[#04282D4D] px-3">
+                <p class="p-3 group-hover:block">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum
+                    dolor sit amet, consectetur
+                    adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        <script>
+            const acco = document.querySelector("#accordian");
+            const faq = document.querySelector('#faq');
+            const i1 = document.querySelector('#i1');
+            const i2 = document.querySelector('#i2');
+
+            acco.addEventListener('click', () => {
+                if (faq.classList.contains('hidden')) {
+                    faq.classList.remove('hidden')
+                    i2.classList.remove('hidden')
+                    i1.classList.add('hidden')
+                    faq1.classList.add('hidden')
+                    faq2.classList.add('hidden')
+                    i11.classList.remove('hidden')
+                    i21.classList.add('hidden')
+                    i12.classList.remove('hidden')
+                    i22.classList.add('hidden')
+                }
+                else {
+                    faq.classList.add('hidden')
+                    i1.classList.remove('hidden')
+                    i2.classList.add('hidden')
+                }
+            });
+
+            const acco1 = document.querySelector("#accordian1");
+            const faq1 = document.querySelector('#faq1');
+            const i11 = document.querySelector('#i11');
+            const i21 = document.querySelector('#i21');
+
+            acco1.addEventListener('click', () => {
+                if (faq1.classList.contains('hidden')) {
+                    faq1.classList.remove('hidden')
+                    i21.classList.remove('hidden')
+                    i11.classList.add('hidden')
+                    faq2.classList.add('hidden')
+                    faq.classList.add('hidden')
+                    i1.classList.remove('hidden')
+                    i2.classList.add('hidden')
+                    i12.classList.remove('hidden')
+                    i22.classList.add('hidden')
+                }
+                else {
+                    faq1.classList.add('hidden')
+                    i11.classList.remove('hidden')
+                    i21.classList.add('hidden')
+                }
+            });
+
+
+            const acco2 = document.querySelector("#accordian2");
+            const faq2 = document.querySelector('#faq2');
+            const i12 = document.querySelector('#i12');
+            const i22 = document.querySelector('#i22');
+
+            acco2.addEventListener('click', () => {
+                if (faq2.classList.contains('hidden')) {
+                    faq2.classList.remove('hidden')
+                    i22.classList.remove('hidden')
+                    i12.classList.add('hidden')
+                    faq.classList.add('hidden')
+                    faq1.classList.add('hidden')
+                    i1.classList.remove('hidden')
+                    i2.classList.add('hidden')
+                    i11.classList.remove('hidden')
+                    i21.classList.add('hidden')
+                }
+                else {
+                    faq2.classList.add('hidden')
+                    i12.classList.remove('hidden')
+                    i22.classList.add('hidden')
+                }
+            });
+        </script>
+
+    </div>
+    <div class="container mx-auto">
+        <div class="flex flex-wrap justify-between p-6 sm:text-center">
+            <div class="text-[#04282D] order-last md:order-first mx-auto md:mx-0">
+                <span>&copy; 2022 Haus Gitschberg</span>
+            </div>
+            <div class="mx-auto py-4 md:mx-0">
+                <a class="hover:text-[#0B8497]" href="">Terms & Conditions</a>| <a class="hover:text-[#0B8497]"
+                    href="">Privacy Policy</a>
+            </div>
+            <div class="flex space-x-9 order-first md:order-last mx-auto md:mx-0">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <path
+                        d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+                </svg>
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path
+                        d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+                </svg>
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path
+                        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                </svg>
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path
+                        d="M204 6.5C101.4 6.5 0 74.9 0 185.6 0 256 39.6 296 63.6 296c9.9 0 15.6-27.6 15.6-35.4 0-9.3-23.7-29.1-23.7-67.8 0-80.4 61.2-137.4 140.4-137.4 68.1 0 118.5 38.7 118.5 109.8 0 53.1-21.3 152.7-90.3 152.7-24.9 0-46.2-18-46.2-43.8 0-37.8 26.4-74.4 26.4-113.4 0-66.2-93.9-54.2-93.9 25.8 0 16.8 2.1 35.4 9.6 50.7-13.8 59.4-42 147.9-42 209.1 0 18.9 2.7 37.5 4.5 56.4 3.4 3.8 1.7 3.4 6.9 1.5 50.4-69 48.6-82.5 71.4-172.8 12.3 23.4 44.1 36 69.3 36 106.2 0 153.9-103.5 153.9-196.8C384 71.3 298.2 6.5 204 6.5z" />
+                </svg>
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <path
+                        d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
+                </svg>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
